@@ -121,8 +121,8 @@ class Arrayeasy:
             if i==1:
                 cunt+=i
             else:
-                m=max(m,cunt)
                 cunt=0
+            m=max(m,cunt)
         return m
     def once(self,arr):
         xor=0
@@ -147,4 +147,5 @@ class Arrayeasy:
 
 obj=Arrayeasy()
 sarrayk=obj.sarrayk([1,1,2,2,3,4,4],5)
-print(sarrayk)
+mx=obj.max1([1 for i in range(1,1000000000)])
+print(mx)

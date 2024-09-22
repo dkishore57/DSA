@@ -13,3 +13,104 @@
 12.single element in a sorted array
 13.find peak element
 """
+class binarysearch:
+    def bsearch(self,arr,target):
+        low=0
+        high=len(arr)-1
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[mid]<target:
+                low=mid+1
+            elif arr[mid]>target:
+                high=mid-1
+            else:
+                return True
+        return False
+    def lower_bound(self,arr,target):
+        low=0
+        high=len(arr)-1
+        ans=len(arr)
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[mid]>=target:
+                ans=mid
+                high=mid-1
+            else:
+                low=mid+1
+        return ans      
+    def upper_bound(self,arr,target):
+        low=0
+        high=len(arr)-1
+        ans=len(arr)
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[mid]>target:
+                ans=mid
+                high=mid-1
+            else:
+                low=mid+1
+        return ans
+    def floor(self,arr,target):
+        low=0
+        high=len(arr)-1
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[mid]<=target:
+                ans=arr[mid]
+                low=mid+1
+            else:
+                high=mid-1
+        return ans
+    def rotated_sorted_array1(self,arr,k):
+        low=0
+        high=len(arr)-1
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[mid]==k:
+                return mid
+            elif arr[low]<=arr[mid]:
+                if k>=arr[low] and k<=arr[mid]:
+                    high=mid-1
+                else:
+                    low=high+1
+            else:
+                if arr[mid]<=k and k<=arr[high]:
+                    low=mid+1
+                else:
+                    high=mid-1
+        return -1
+    def rotated_sorted_array2(self,arr,k):
+        low=0
+        high=len(arr)-1
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[mid]==k:
+                return mid
+            if arr[low]==arr[mid] and arr[mid]==arr[high]:
+                continue
+            elif arr[low]<=arr[mid]:
+                if k>=arr[low] and k<=arr[mid]:
+                    high=mid-1
+                else:
+                    low=high+1
+            else:
+                if arr[mid]<=k and k<=arr[high]:
+                    low=mid+1
+                else:
+                    high=mid-1
+        return -1
+''' Search insert position is same as lower bound
+    ceil of the array is same as lower bound
+    first occurence is same as lower bound
+    last occurence is same as upper bound-1
+'''
+    
+
+
+obj=binarysearch()
+bsearch=obj.bsearch([1,2,3,4,5],6)
+lower_bound=obj.lower_bound([1,3,5,7,9,11,45],4)
+upper_bound=obj.upper_bound([1,2,2,2,2,3,5,8,99,101],6)
+floor=obj.floor([1,2,4,5,6,6,6],10)
+print(floor)
+
