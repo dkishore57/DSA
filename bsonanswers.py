@@ -13,5 +13,4 @@
 12.minimize max distance to gas station 
 13.median of 2 sorted arrays
 14.kth element of 2 sorted array
-
 """

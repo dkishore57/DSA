@@ -99,6 +99,19 @@ class binarysearch:
                 else:
                     high=mid-1
         return -1
+    def findmin(self,arr):
+        low=0
+        high=len(arr)-1
+        ans=100000
+        while(low<=high):
+            mid=(low+high)//2
+            if arr[low]<=arr[mid]:
+                ans=min(ans,arr[low])
+                low=mid+1
+            else:
+                ans=min(ans,arr[mid])
+                high=mid-1
+        return ans
 ''' Search insert position is same as lower bound
     ceil of the array is same as lower bound
     first occurence is same as lower bound
@@ -112,5 +125,6 @@ bsearch=obj.bsearch([1,2,3,4,5],6)
 lower_bound=obj.lower_bound([1,3,5,7,9,11,45],4)
 upper_bound=obj.upper_bound([1,2,2,2,2,3,5,8,99,101],6)
 floor=obj.floor([1,2,4,5,6,6,6],10)
-print(floor)
+findmin=obj.findmin([2,3,4,5,0,1])
+print(findmin)
 
