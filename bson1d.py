@@ -12,6 +12,7 @@
 11.find out how many times has an array been rotated
 12.single element in a sorted array
 13.find peak element
+
 """
 class binarysearch:
     def bsearch(self,arr,target):
