@@ -40,7 +40,7 @@ class recursion():
     def subsequence(self,ind,arr,temp,n,ANS):
         if ind==n:
             ANS.append(temp[:])
-            return 
+            return 0
         temp.append(arr[ind])
         self.subsequence(ind+1,arr,temp,n,ANS)
         temp.pop()
@@ -58,16 +58,12 @@ class recursion():
                 x = x * x
                 nn = nn // 2
         if n < 0:
-            ans = 1.0 / ans
+            ans = 1.0 / ans     
         return ans
     
 obj=recursion()
-"""
-rev=obj.recursive_reverse([1,3,4,5],0)
-check_pali=obj.check_pali("MADAM",0)
 ANS=[]
-sub=obj.subsequence(0,[1,2,3],[],3,ANS)"""
-powe=obj.powe(2,4)
-print(powe)
+sub=obj.subsequence(0,[1,2,3],[],3,ANS)
+print(ANS)
 
         
